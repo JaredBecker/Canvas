@@ -1,0 +1,129 @@
+/* Library / Font Imports */
+@import url('https://fonts.googleapis.com/css2?family=Modak&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa&family=Permanent+Marker&display=swap');
+
+/* Main Styles */
+html {
+    scroll-behavior: smooth;
+    scroll-padding: 60px
+}
+body:not(.canvas_page) {
+    margin-top: 120px;
+    font-family: 'Comfortaa', cursive;
+    background: url("https://www.toptal.com/designers/subtlepatterns/patterns/hypnotize.png");
+}
+body.canvas_page {
+    margin: 0;
+    overflow: hidden;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Permanent Marker', cursive;
+}
+nav {
+    box-shadow: 0px 0px 10px #000;
+}
+
+/* Header Styles */
+.logo {
+    max-width: 200px;
+}
+
+/* General Styles */
+.leading_content {
+    padding: 50px 0;
+    text-align: center;
+}
+.content_section {
+    padding: 50px 0;
+}
+.canvas_card h3 {
+    color: #f793ea;
+    text-shadow: 0 0 10px #f793ea;
+}
+.canvas_card img {
+    max-width: 100%;
+}
+.card_content {
+    text-align: center;
+}
+.pulse {
+    animation: pulse-animation 1.5s infinite !important;
+}
+
+/* Canvas Pages */
+.icon_container {
+    position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.icon_container .back_button,
+.icon_container .settings_button {
+    display: inline-block;
+    font-size: 35px;
+    padding: 10px;
+    margin: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    transition: all 0.3s;
+}
+.icon_container .back_button:hover,
+.icon_container .settings_button:hover {
+    cursor: pointer;
+    color: #fff;
+    background-color: #63b8cd;
+    transform: rotate(360deg);
+}
+.title {
+    position: absolute;
+    top: 50%;  
+    left: 50%; 
+    transform: translate(-50%, -50%);
+    font-family: 'Modak', cursive;
+    font-size: 130px;
+    color: #fff;
+    text-shadow: 0px 0px 3px#000;
+    font-weight: 400;
+    color:#fff;
+    text-align: center;
+}
+.settings_modal h4 {
+    color: #f793ea;
+    text-shadow: 0 0 10px #f793ea;
+}
+
+/* Keyframes */
+@keyframes pulse-animation {
+    0% {
+        box-shadow: 0 0 0 0px rgba(99, 184, 205, 1);
+        transform: scale(1, 1);
+    }
+    50% {
+        transform: scale(1.2, 1.2);
+    }
+    100% {
+        box-shadow: 0 0 0 15px  rgba(99, 184, 205, 0);
+        transform: scale(1, 1);
+    }
+}
+
+/* Media Queries */
+@media(max-width: 1250px) {
+    .title {
+        font-size: 75px;
+    }
+}
+@media(max-width: 721px) {
+    .title {
+        font-size: 45px;
+    }
+}
+@media(max-width: 432px) {
+    .title {
+        font-size: 30px;
+    }
+}

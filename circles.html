@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="collection of small canvas projects I have made just for the fun of it. For the best possible experience please use Google Chrome on a PC!">
+    <link rel="icon" type="images/png" href="images/favicon.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+    <script type="module" src="https://unpkg.com/ionicons@5.2.3/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule="" src="https://unpkg.com/ionicons@5.2.3/dist/ionicons/ionicons.js"></script>
+    <title>Canvas Mess Around</title>
+</head>
+
+<body class="canvas_page main">
+    <div class="icon_container">
+        <a class="back_button" href="JavaScript:Void(0)"
+            onclick="window.location.assign('http:\/\/canvas.fullmoondesign.co.za#circles')">
+            <ion-icon name="arrow-undo-outline"></ion-icon>
+        </a>
+        <a class="settings_button" href="#settingsModal" data-toggle="modal" data-target="#settingsModal">
+            <ion-icon name="settings-outline"></ion-icon>
+        </a>
+    </div>
+    <h1 class="title">Just Relax</h1>
+    <canvas class="myCanvas">
+        If you can read this get a better browser...
+    </canvas>
+
+    <!-- Settings Modal -->
+    <div class="modal fade" id="settingsModal" data-backdrop="static" data-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header settings_modal bg-dark">
+                    <h4 class="modal-title" id="staticBackdropLabel">Canvas Settings</h4>
+                    <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Use the settings below to customize how the canvas generates the shapes on the screen.
+                    <hr>
+                    <!-- Start of settings form -->
+                    <div class="form-group">
+                        <label for="page_title">Page Title</label>
+                        <input type="text" class="form-control" id="page_title" aria-describedby="page_title_small" value="Just Relax">
+                        <small id="page_title_small" class="form-text text-muted">Title displayed in the middle of the page</small>
+                    </div>
+                    <div class="custom-control custom-switch">
+                        <input type="checkbox" class="custom-control-input" id="show_title" checked>
+                        <label class="custom-control-label" for="show_title">Show Title</label>
+                    </div>
+                    <div class="form-group mt-3">
+                        <label for="num_shapes">Number of shapes</label>
+                        <input type="text" class="form-control" id="num_shapes" aria-describedby="num_shapes_small" value="100">
+                        <small id="num_shapes_small" class="form-text text-muted">Setting this to high can impact performance, but do it anyway. I know you want to...</small>
+                    </div>
+                    <div class="form-group mt-3">
+                        <label for="colors">Colors</label>
+                        <input type="text" class="form-control" id="colors" aria-describedby="colors_small" value="#ffbe0b, #fb5607, #ff006e, #8338ec, #3a86ff">
+                        <small id="colors_small" class="form-text text-muted">List of <strong>HEXADECIMAL</strong> values separated by a comma. Eg: #f2f2f2, #0d0d0d</small>
+                        <a href="https://colorhunt.co/" target="_blank">
+                            <span class="badge badge-dark">Click here for color pallets</span>
+                        </a>
+                    </div>
+                    <div class="form-group mt-3">
+                        <label for="background_color">Background Color</label>
+                        <input type="text" class="form-control" id="background_color" aria-describedby="background_color_small" value="#fff">
+                        <small id="background_color_small" class="form-text text-muted"><strong>HEXADECIMAL || RGBA || RGB</strong> value</small>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="form-group mt-3">
+                                <label for="max_radius">Max Radius / Width</label>
+                                <input type="text" class="form-control" id="max_radius" aria-describedby="max_radius_small" value="30">
+                                <small id="max_radius_small" class="form-text text-muted">Max size of the shapes you want to spawn in px</small>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-group mt-3">
+                                <label for="min_radius">Min Radius / Width</label>
+                                <input type="text" class="form-control" id="min_radius" aria-describedby="min_radius_small" value="10">
+                                <small id="min_radius_small" class="form-text text-muted">Min size of the shapes you want to spawn in px</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group mt-3">
+                        <label for="shapes">Shapes</label>
+                        <select class="custom-select" id="shapes">
+                            <option value="circle" selected>Circle</option>
+                            <option value="rect">Rectangles</option>
+                            <option value="both">Both</option>
+                        </select>
+                        <small id="shapes" class="form-text text-muted">Choose the shapes that you want displayed</small>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="form-group mt-3">
+                                <label for="max_dx">Max X Velocity</label>
+                                <input type="text" class="form-control" id="max_dx" aria-describedby="max_dx_small" value="10">
+                                <small id="max_dx_small" class="form-text text-muted">Max speed at which shapes move around the screen on the X axis</small>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-group mt-3">
+                                <label for="min_dx">Min X Velocity</label>
+                                <input type="text" class="form-control" id="min_dx" aria-describedby="min_dx_small" value="5">
+                                <small id="min_dx_small" class="form-text text-muted">Min speed at which shapes move around the screen on the X axis</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="form-group mt-3">
+                                <label for="max_dy">Max Y Velocity</label>
+                                <input type="text" class="form-control" id="max_dy" aria-describedby="max_dy_small" value="10">
+                                <small id="max_dy_small" class="form-text text-muted">Max speed at which shapes move around the screen on the Y axis</small>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-group mt-3">
+                                <label for="min_dy">Min Y Velocity</label>
+                                <input type="text" class="form-control" id="min_dy" aria-describedby="min_dy_small" value="5">
+                                <small id="min_dy_small" class="form-text text-muted">Min speed at which shapes move around the screen on the Y axis</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group mt-3">
+                        <label for="outline_thickness">Outline Thickness</label>
+                        <input type="text" class="form-control" id="outline_thickness" aria-describedby="outline_thickness_small" value="5">
+                        <small id="outline_thickness_small" class="form-text text-muted">How THICC do you want the lines around your shapes</small>
+                    </div>
+                    <div class="custom-control custom-switch">
+                        <input type="checkbox" class="custom-control-input" id="show_outline" checked>
+                        <label class="custom-control-label" for="show_outline">Show Outline</label>
+                    </div>
+                    <div class="custom-control custom-switch">
+                        <input type="checkbox" class="custom-control-input" id="enable_trippy_mode">
+                        <label class="custom-control-label" for="enable_trippy_mode">Enable Trippy Mode</label>
+                    </div>
+                    <div class="custom-control custom-switch">
+                        <input type="checkbox" class="custom-control-input" id="clear_screen" checked>
+                        <label class="custom-control-label" for="clear_screen">Disable Clear Screen After Each Frame</label>
+                    </div>
+                </div>
+                <!-- End Modal Body -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-danger" onclick="window.location.reload()">Reset</button>
+                    <button type="button" class="btn btn-dark" data-dismiss="modal" onclick="init()">Update Canvas</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/circles.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
